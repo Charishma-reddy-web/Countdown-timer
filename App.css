@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #4f46e5;
+  --bg-color: #e0e7ff;
+  --card-bg: #ffffff;
+  --text-color: #1f2937;
+  --accent-color: #fca5a5;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: radial-gradient(circle at top left, #a5b4fc, #eef2ff);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #312e81;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timer-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.input-group-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.timer-input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-input {
+  width: 80px;
+  height: 80px;
+  font-size: 2.5rem;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.timer-input:focus {
+  border-color: var(--primary-color);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.timer-label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.colon {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+/* Timer Display */
+.timer-display {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-value {
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.unit-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.separator {
+  font-size: 4rem;
+  color: var(--secondary-color);
+  font-weight: 300;
+  margin-top: -0.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Input Wrapper & Custom Controls */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-controls {
+  position: absolute;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+  justify-content: center;
+}
+
+.control-btn {
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-size: 0.5rem;
+  transition: all 0.2s;
+  opacity: 0.6;
+}
+
+.control-btn:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary-color);
+  opacity: 1;
+}
+
+.control-btn:active {
+  transform: scale(0.9);
+}
+
+.timer-input {
+  /* Adjusted to remove default browser spinners if any, but handled by text input type now */
+  width: 100px;
+  /* Slightly wider for 2 digits comfortably */
+  padding-right: 25px;
+  /* Make space for controls */
+}
+
+
+.btn {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-start {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-start:hover {
+  background: var(--secondary-color);
+  box-shadow: 0 6px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-pause {
+  background: #fbbf24;
+  color: white;
+}
+
+.btn-pause:hover {
+  background: #f59e0b;
+}
+
+.btn-reset {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.btn-reset:hover {
+  background: #e5e7eb;
+}
